@@ -1,65 +1,73 @@
 <!doctype html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <title>Learning</title>
-<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Learning</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-<script type="text/javascript" src="./scripts/course_select.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script type="text/javascript" src="./scripts/course_select.js"></script>
 </head>
+
 <body>
-  <h1>J1練習</h1>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-inline">
-    <div class="row">
-    <select name="" id="input_lesson" class="form-control" >
-  <option value="">請選擇</option>
-</select>
-<select name="" id="input_lesson_stage" class="form-control" >
-  <option value="">請選擇</option>
-</select>
-<button type="button" id="btn_load_lesson" class="btn btn-info">載入</button>
-  </div>
+    <h1>J1練習</h1>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
+            <select name="" id="input_lesson" class="form-control">
+                <option value="">請選擇</option>
+                </select>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
+            <select name="" id="input_lesson_stage" class="form-control">
+                <option value="">請選擇</option>
+                </select>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
+        <button type="button" id="btn_load_lesson" class="btn btn-info">載入</button>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
+            <div class="row">
+                <input #fileInput type="file" id="uploadFile" (change)="loadFile($event, fileInput)">
+                <input #audioInput type="file" id="uploadAudio" (change)="loadAudio($event, audioInput, audioPlayer)"> 全文播放：
+                <audio #audioPlayer id="audioPlayer" width="320" height="176" controls>
+                </audio>
+            </div>
+        </div>
 
-<div class="row">
-    <input #fileInput type="file" id="uploadFile" (change)="loadFile($event, fileInput)">
-    <input #audioInput type="file" id="uploadAudio" (change)="loadAudio($event, audioInput, audioPlayer)">
-    全文播放：<audio #audioPlayer id="audioPlayer" width="320" height="176" controls>
-    </audio>
-</div>
-  </div>
+    <div class="col-lg-6">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>日文</th>
+                    <th>漢字</th>
+                    <th>中文</th>
+                    <th>功能</th>
+                </tr>
+            </thead>
+            <tbody class="word_list">
+            </tbody>
+        </table>
+    </div>
 
-</div>
-
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>日文</th>
-          <th>漢字</th>
-          <th>中文</th>
-          <th>功能</th>
-        </tr>
-      </thead>
-      <tbody class="word_list">
-      </tbody>
-    </table>
-  </div>
-
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <input #audioInput2 type="file" id="uploadAudio2" >
-    <audio #audioPlayer2 id="audioPlayer2" width="320" height="176" controls></audio>
-    <h3>播放秒數:</h3><h3 id="player_time"></h3>
-  </div>
+    <div class="col-lg-6">
+        <input #audioInput2 type="file" id="uploadAudio2">
+        <audio #audioPlayer2 id="audioPlayer2" width="320" height="176" controls></audio>
+        <h3>播放秒數:</h3>
+        <h3 id="player_time"></h3>
+    </div>
 
 </body>
+
 </html>
