@@ -44,10 +44,9 @@
 
             </div>
         </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
-                <div class="row"><input #fileInput type="file" id="uploadFile" (change)="loadFile($event, fileInput)"></div>
-                <div class="row"><input #audioInput type="file" id="uploadAudio" (change)="loadAudio($event, audioInput, audioPlayer)"></div>
+
                 <div class="row">全文播放：<audio #audioPlayer id="audioPlayer" width="320" height="176" controls></audio></div>
         </div>
 
@@ -66,7 +65,15 @@
         </table>
     </div>
 
+            
+
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+        匯入文字檔<input #fileInput type="file" id="uploadFile" (change)="loadFile($event, fileInput)">
+        匯入音檔<input #audioInput type="file" id="uploadAudio" (change)="loadAudio($event, audioInput, audioPlayer)">
+        </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        計算音檔位置秒數：
         <input #audioInput2 type="file" id="uploadAudio2">
         <audio #audioPlayer2 id="audioPlayer2" width="320" height="176" controls></audio>
         <h3>播放秒數:</h3>
