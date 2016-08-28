@@ -28,6 +28,14 @@ $(document).ready(function () {
             $('#player_time').text($(this)[0].currentTime);
         }
     });
+
+    $('#btn_advence').click(function () {
+        if ($('#advence_zone').is(":visible")) {
+            $('#advence_zone').hide();
+        } else {
+            $('#advence_zone').show();
+        }
+    });
 });
 
 function initCourse() {
@@ -44,9 +52,6 @@ function initCourse() {
 }
 
 function onLoadLessonStage(select_lesson, select_stage) {
-
-
-
     if (select_lesson != '' && select_stage != '') {
         var text_file = './course/' + select_lesson + '_' + select_stage + '.csv';
         var mp3_file = './audio/' + select_lesson + '_' + select_stage + '.mp3';
@@ -113,12 +118,12 @@ function showWord(data_list) {
     $('button.btn_playword').click(function () {
         var start_sec = $(this).data('start_sec');
         var end_sec = $(this).data('end_sec');
-         if (timeout_control != null){
-             clearTimeout(timeout_control);
-         }
-         var player = $('#audioPlayer')[0];
-         player.pause();
-         player.onplaying = null;
+        if (timeout_control != null) {
+            clearTimeout(timeout_control);
+        }
+        var player = $('#audioPlayer')[0];
+        player.pause();
+        player.onplaying = null;
         playWord(start_sec, end_sec, 3);
     });
 }
@@ -131,13 +136,13 @@ function playWord(start_sec, end_sec, times) {
     times--;
     player.onplaying = function () {
         timeout_control = setTimeout(function () {
-        player.pause();
-        if (times > 0) {
-            playWord(start_sec, end_sec, times);
-        } else {
-            player.onplaying = null;
-        }
-    }, (end_sec - start_sec) * 1000);
+            player.pause();
+            if (times > 0) {
+                playWord(start_sec, end_sec, times);
+            } else {
+                player.onplaying = null;
+            }
+        }, (end_sec - start_sec) * 1000);
     }
 }
 
