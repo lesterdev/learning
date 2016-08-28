@@ -55,7 +55,7 @@ function onLoadLessonStage(select_lesson, select_stage) {
     if (select_lesson != '' && select_stage != '') {
         var text_file = './course/' + select_lesson + '_' + select_stage + '.csv';
         var mp3_file = './audio/' + select_lesson + '_' + select_stage + '.mp3';
-        $('#audioPlayer').prop('src', mp3_file);
+        $('#audioPlayer').prop('src', mp3_file).get(0).load();
         getTextFile(text_file);
     } else {
         alert('請選擇項目');
