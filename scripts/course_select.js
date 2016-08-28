@@ -113,6 +113,7 @@ function showWord(data_list) {
     $('button.btn_playword').click(function () {
         var start_sec = $(this).data('start_sec');
         var end_sec = $(this).data('end_sec');
+         if (timeout_control != null) clearTimeout(timeout_control);
         playWord(start_sec, end_sec, 3);
     });
 }
@@ -124,7 +125,7 @@ function playWord(start_sec, end_sec, times) {
     player.play();
     times--;
     player.onplaying = function () {
-        if (timeout_control != null) clearTimeout(timeout_control);
+       
         timeout_control = setTimeout(function () {
             player.pause();
             if (times > 0) {
