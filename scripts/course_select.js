@@ -63,8 +63,10 @@ function onLoadLessonStage(select_lesson, select_stage) {
         var text_file = './course/' + select_lesson + '_' + select_stage + '.csv';
         var mp3_file = './audio/' + select_lesson + '_' + select_stage + '.mp3';
         $('#audioPlayer').prop('src', mp3_file).get(0).play();
+        $('#audioPlayer').prop('src', mp3_file).get(0).muted = true;
         $('#audioPlayer').get(0).onprogress = function() {
-             this.pause();
+            this.pause();
+            this.muted = false;
         };
         getTextFile(text_file, select_stage);
     } else {
