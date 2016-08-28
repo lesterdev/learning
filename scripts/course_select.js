@@ -69,6 +69,7 @@ function onLoadLessonStage(select_lesson, select_stage) {
         audio_obj.oncanplay = function() {
             audio_obj.pause();
             audio_obj.muted = false;
+            audio_obj.oncanplay = null;
         };
         getTextFile(text_file, select_stage);
     } else {
