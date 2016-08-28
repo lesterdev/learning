@@ -66,9 +66,9 @@ function onLoadLessonStage(select_lesson, select_stage) {
         var audio_obj = $('#audioPlayer').get(0);
         audio_obj.play();
         audio_obj.muted = true;
-        audio_obj.onprogress = function() {
-            this.pause();
-            this.muted = false;
+        audio_obj.oncanplay = function() {
+            audio_obj.pause();
+            audio_obj.muted = false;
         };
         getTextFile(text_file, select_stage);
     } else {
