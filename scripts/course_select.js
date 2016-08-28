@@ -113,7 +113,12 @@ function showWord(data_list) {
     $('button.btn_playword').click(function () {
         var start_sec = $(this).data('start_sec');
         var end_sec = $(this).data('end_sec');
-         if (timeout_control != null) clearTimeout(timeout_control);
+         if (timeout_control != null){
+             clearTimeout(timeout_control);
+         }
+         var player = $('#audioPlayer')[0];
+         player.pause();
+         player.onplaying = null;
         playWord(start_sec, end_sec, 3);
     });
 }
@@ -125,15 +130,14 @@ function playWord(start_sec, end_sec, times) {
     player.play();
     times--;
     player.onplaying = function () {
-       
         timeout_control = setTimeout(function () {
-            player.pause();
-            if (times > 0) {
-                playWord(start_sec, end_sec, times);
-            } else {
-                player.onplaying = null;
-            }
-        }, (end_sec - start_sec) * 1000);
+        player.pause();
+        if (times > 0) {
+            playWord(start_sec, end_sec, times);
+        } else {
+            player.onplaying = null;
+        }
+    }, (end_sec - start_sec) * 1000);
     }
 }
 
