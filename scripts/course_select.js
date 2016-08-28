@@ -65,8 +65,9 @@ function onLoadLessonStage(select_lesson, select_stage) {
         $('#audioPlayer').prop('src', mp3_file).get(0).play();
         $('#audioPlayer').prop('src', mp3_file).get(0).muted = true;
         $('#audioPlayer').get(0).onprogress = function() {
+            setTimeout(function(){
             this.pause();
-            this.muted = false;
+            this.muted = false;}, 3000);
         };
         getTextFile(text_file, select_stage);
     } else {
