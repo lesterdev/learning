@@ -101,6 +101,22 @@ function getTextFile(file, stage) {
     });
 }
 
+function transRuby(text){
+    var result ='';
+    var text_list = text.split('））');
+    for(var i in text_list){
+        var word_split = text_list[i].split('（（');
+        if(word_split.length<2){
+            result+=word_split[0];    
+        } else {
+            var tern = word_split[0].split('＠＠');
+            result+=tern[0]+'<ruby>'+tern[1]+'<rp>（</rp> <rt>'+word_split[1]+'</rt><rp>）</rp></ruby>';    
+        }
+    }
+    return result;
+    
+}
+
 function getAsText(fileToRead, stage) {
     var reader = new FileReader();
     // Read file into memory as UTF-8
@@ -141,9 +157,9 @@ function show_word(data_list) {
         }
         zone_list_obj.append(
             '<tr>' +
-            '<td>' + data[0] + '</td>' +
-            '<td>' + data[1] + '</td>' +
-            '<td>' + data[2] + '</td>' +
+            '<td>' + transRuby(data[0]) + '</td>' +
+            '<td>' + transRuby(data[1]) + '</td>' +
+            '<td>' + transRuby(data[2]) + '</td>' +
             '<td>' + play_button_html + '</td>' +
             '</tr>');
     }
@@ -179,8 +195,8 @@ function show_conversation(data_list) {
         }
         zone_list_obj.append(
             '<tr>' +
-            '<td>' + data[0] + '</td>' +
-            '<td>' + data[1] + '</td>' +
+            '<td>' + transRuby(data[0]) + '</td>' +
+            '<td>' + transRuby(data[1]) + '</td>' +
             '<td>' + play_button_html + '</td>' +
             '</tr>');
     }
