@@ -181,6 +181,33 @@ function cleanAudioPlayer(){
         player.onplaying = null;
 }
 
+function show_example(data_list) {
+    var zone_list_obj = $('.example_list');
+    zone_list_obj.html('');
+    //first line is title of conversation.
+    //$('#conversation_title').html(transRuby(data_list[0][0]));
+    for (var i = 0; i < data_list.length; i++) {
+        var data = data_list[i];
+        var play_button_html = '';
+        if(data[2]!=''&&data[3]!=''){
+            play_button_html = '<button type="button" class="btn_playword" data-start_sec="' + data[2] + '" data-end_sec="' + data[3] + '"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>';
+        }
+        zone_list_obj.append(
+            '<tr>' +
+            '<td>' + transRuby(data[0]) + '</td>' +
+            '<td>' + transRuby(data[1]) + '</td>' +
+            '<td>' + play_button_html + '</td>' +
+            '</tr>');
+    }
+
+    $('button.btn_playword').click(function () {
+        var start_sec = $(this).data('start_sec');
+        var end_sec = $(this).data('end_sec');
+        cleanAudioPlayer();
+        playWord(start_sec, end_sec, 3);
+    });
+}
+
 
 function show_conversation(data_list) {
     var zone_list_obj = $('.conversation_list');
