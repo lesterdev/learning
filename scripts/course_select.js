@@ -186,7 +186,7 @@ function show_conversation(data_list) {
     var zone_list_obj = $('.conversation_list');
     zone_list_obj.html('');
     //first line is title of conversation.
-    $('#conversation_title').text(data_list[0][0]);
+    $('#conversation_title').html(transRuby(data_list[0][0]));
     for (var i = 1; i < data_list.length; i++) {
         var data = data_list[i];
         var play_button_html = '';
