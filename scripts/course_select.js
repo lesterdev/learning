@@ -1,5 +1,5 @@
 
-var lesson_list = "L1,L2,L3".split(',');
+var lesson_list = "L1,L2,L3,L4".split(',');
 var item_text = '単語（たんご）,文型（ぶんけい）,例文（れいぶん）,会話（かいわ）'.split(',');
 var item_list = 'word,type,example,conversation'.split(',');
 
@@ -87,6 +87,7 @@ function show_data(data, stage){
                 show_conversation(data);
             }
             $('.'+stage+'_zone').show();
+            $(".japan_content").JVFurigana();
 }
 
 function getTextFile(file, stage) {
@@ -102,7 +103,8 @@ function getTextFile(file, stage) {
 }
 
 function transRuby(text){
-    var result ='';
+    var result =text;
+    /*
     var text_list = text.split('））');
     for(var i in text_list){
         var word_split = text_list[i].split('（（');
@@ -113,6 +115,7 @@ function transRuby(text){
             result+=tern[0]+'<ruby>'+tern[1]+'<rp>（</rp> <rt>'+word_split[1]+'</rt><rp>）</rp></ruby>';    
         }
     }
+    */
     return result;
     
 }
@@ -195,7 +198,7 @@ function show_example(data_list) {
         zone_list_obj.append(
             '<tr>' +
             '<td>' + transRuby(data[0]) + '</td>' +
-            '<td>' + transRuby(data[1]) + '</td>' +
+            '<td class="japan_content">' + transRuby(data[1]) + '</td>' +
             '<td>' + play_button_html + '</td>' +
             '</tr>');
     }
@@ -222,8 +225,8 @@ function show_conversation(data_list) {
         }
         zone_list_obj.append(
             '<tr>' +
-            '<td>' + transRuby(data[0]) + '</td>' +
-            '<td>' + transRuby(data[1]) + '</td>' +
+            '<td class="japan_content">' + transRuby(data[0]) + '</td>' +
+            '<td class="japan_content">' + transRuby(data[1]) + '</td>' +
             '<td>' + play_button_html + '</td>' +
             '</tr>');
     }

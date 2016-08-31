@@ -21,8 +21,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script type="text/javascript" src="./scripts/course_select.js"></script>
+    <script type="text/javascript" src="./scripts/japan_ruby/jquery-migrate-1.1.1.min.js"></script>
+    <script type="text/javascript" src="./scripts/japan_ruby/jvfurigana.plugin.min.js"></script>
+    <script type="text/javascript" src="./scripts/japan_ruby/xregexp-all-min.js"></script>
 
-    <style type="text/css"> 
+    <style type="text/css">
+        td{
+            font-size: 16px;
+        }
         rt {
             color: #ff4dc4;
         }
@@ -93,7 +99,7 @@
     <div class="content_zone conversation_zone" style="display:none">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <blockquote class="success" style="margin-bottom: 0px; margin-top: 20px; border-left-color: green;">
-            <p id="conversation_title">test</p>
+            <p id="conversation_title" class="japan_content">test</p>
         </blockquote>
         <table class="table table-hover">
             <thead>
@@ -128,7 +134,7 @@
                 <input #audioInput2 type="file" id="uploadAudio2">
                 <audio #audioPlayer2 id="audioPlayer2" width="320" height="176" controls></audio>
                 <h3>播放秒數:</h3>
-                <h3 id="player_time"></h3>
+                <p id="player_time"></p>
             </div>
         </div>
     </div>
