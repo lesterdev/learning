@@ -1,5 +1,5 @@
 
-var lesson_list = "L1,L2,L3,L4".split(',');
+var lesson_list = "L1,L2,L3,L4,L5".split(',');
 var item_text = '単語（たんご）,文型（ぶんけい）,例文（れいぶん）,会話（かいわ）'.split(',');
 var item_list = 'word,type,example,conversation'.split(',');
 
