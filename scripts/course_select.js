@@ -160,7 +160,7 @@ function show_word(data_list) {
         }
         zone_list_obj.append(
             '<tr>' +
-            '<td>' + transRuby(data[0]) + '</td>' +
+            '<td class="japan_content">' + transRuby(data[0]) + '</td>' +
             '<td>' + transRuby(data[1]) + '</td>' +
             '<td>' + transRuby(data[2]) + '</td>' +
             '<td>' + play_button_html + '</td>' +
