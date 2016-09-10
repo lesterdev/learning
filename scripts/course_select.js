@@ -1,5 +1,5 @@
 
-var lesson_list = "L1,L2,L3,L4,L5".split(',');
+var lesson_list = "L1,L2,L3,L4,L5,L6".split(',');
 var item_text = '単語（たんご）,文型（ぶんけい）,例文（れいぶん）,会話（かいわ）'.split(',');
 var item_list = 'word,type,example,conversation'.split(',');
 
@@ -43,6 +43,19 @@ $(document).ready(function () {
             $('#advence_zone').show();
         }
     });
+    
+    $('label.btn_radio').on('click',function(){
+        $(this).children('input:radio').prop('checked',true);
+    });
+
+    $(document).on('click','button.btn_playword',function () {
+        var start_sec = $(this).data('start_sec');
+        var end_sec = $(this).data('end_sec');
+        cleanAudioPlayer();
+        var play_times = $('input[name="times_options"]:checked').prop('value');
+        playWord(start_sec, end_sec, play_times);
+    });
+    
 });
 
 function initCourse() {
@@ -166,13 +179,14 @@ function show_word(data_list) {
             '<td>' + play_button_html + '</td>' +
             '</tr>');
     }
-
+    /*
     $('button.btn_playword').click(function () {
         var start_sec = $(this).data('start_sec');
         var end_sec = $(this).data('end_sec');
         cleanAudioPlayer();
         playWord(start_sec, end_sec, 3);
     });
+    */
 }
 
 function cleanAudioPlayer(){
@@ -202,13 +216,14 @@ function show_example(data_list) {
             '<td>' + play_button_html + '</td>' +
             '</tr>');
     }
-
+    /*
     $('button.btn_playword').click(function () {
         var start_sec = $(this).data('start_sec');
         var end_sec = $(this).data('end_sec');
         cleanAudioPlayer();
         playWord(start_sec, end_sec, 3);
     });
+    */
 }
 
 
@@ -230,13 +245,14 @@ function show_conversation(data_list) {
             '<td>' + play_button_html + '</td>' +
             '</tr>');
     }
-
+    /*
     $('button.btn_playword').click(function () {
         var start_sec = $(this).data('start_sec');
         var end_sec = $(this).data('end_sec');
         cleanAudioPlayer();
         playWord(start_sec, end_sec, 3);
     });
+    */
 }
 
 var timeout_control = null;

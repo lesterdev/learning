@@ -72,8 +72,20 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
-        全文播放：
-        <audio #audioPlayer id="audioPlayer" width="320" height="176" controls></audio>
+        全文播放：<audio #audioPlayer id="audioPlayer" width="320" height="176" controls></audio>
+
+        重複播放次數：
+        <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-info btn_radio">
+            <input type="radio" name="times_options" id="option1" autocomplete="off" value="1">1
+        </label>
+        <label class="btn btn-info btn_radio active">
+            <input type="radio" name="times_options" id="option2" autocomplete="off" value="2" checked>2
+        </label>
+        <label class="btn btn-info btn_radio">
+            <input type="radio" name="times_options" id="option3" autocomplete="off" value="3">3
+        </label>
+        </div>
     </div>
 
     <div class="content_zone word_zone type_zone" style="display:none">
