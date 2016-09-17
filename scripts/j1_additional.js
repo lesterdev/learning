@@ -6,7 +6,6 @@ $(document).ready(function(){
     $(document).on('click','button.icon',function () {
 
         var word = $(this).data('word');
-        console.log(word);
         if($(this).hasClass('iconblood')){
         $('#blood_zone').text(word);
         } else if($(this).hasClass('iconza')){
@@ -15,7 +14,6 @@ $(document).ready(function(){
             $('#habit_zone').text(word).JVFurigana();
         }
         var para = {pitch: 1, rate: 1,volume: 1};
-
 	    responsiveVoice.speak(word.replace(/ *\（[^）]*\） */g, ""), "Japanese Female");
 
         //$('#newsframe').contents().find('textarea[name="sample_text"]').prop('value',word);
@@ -24,9 +22,16 @@ $(document).ready(function(){
         //$('#btn-normal')[0].click();
     });
     $(document).on('click','.btn_playword',function () {
-        console.log($(this));
-        var word= $(this).prev().text();
-        responsiveVoice.speak(word.replace(/ *\（[^）]*\） */g, ""), "Japanese Female");
+        var word = ''; 
+        $(this).prev().contents().each(function(){
+            if($(this).is('ruby')){
+                word += $(this).find('rt').text();
+            } else{
+                word += $(this).text();
+            }
+        });
+        //responsiveVoice.speak(word.replace(/ *\（[^）]*\） */g, ""), "Japanese Female");
+        responsiveVoice.speak(word, "Japanese Female");
     });
 });
 var word = ""
