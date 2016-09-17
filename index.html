@@ -16,9 +16,10 @@
         crossorigin="anonymous">
 
     <!-- Optional theme -->
+    <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
-
+        -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
@@ -36,8 +37,9 @@
 
     ga('create', 'UA-51751069-2', 'auto');
     ga('send', 'pageview');
-
+    
     </script>
+    <link rel="stylesheet" href="./css/nav_style.css">
     <style type="text/css">
         td{
             font-size: 16px;
@@ -49,47 +51,95 @@
 </head>
 
 <body>
-    <div class="page-header">
-        <h1>日文初級I</h1>
-    </div>
+    <div class="container bs-docs-container">
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">日文初級I</a>
+  </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <!--
+      <li class="active"><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      -->
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">J1課程 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li class="active"><a href="./index.html">J1課程</a></li>
+          <li><a href="./J1Addition.html">J1補充</a></li>
+          <!--
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+          <li class="divider"></li>
+          <li><a href="#">One more separated link</a></li>
+          -->
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li class="active"><a href="./TTS.html">TTS</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-1 form-inline">
             <select name="" id="input_lesson" class="form-control">
                 <option value="">請選擇</option>
-                </select>
+            </select>
+
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-1 form-inline">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 form-inline">
             <select name="" id="input_lesson_stage" class="input_lesson_stage form-control">
                 <option value="">請選擇</option>
             </select>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1 form-inline">
+            <button type="button" id="btn_load_lesson" class="btn btn-warning btn-block">載入</button>
+        </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1">
-            <button type="button" id="btn_load_lesson" class="btn btn-info btn-block">載入</button>
-        </div>
+
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-inline">
         全文播放：<audio #audioPlayer id="audioPlayer" width="320" height="176" controls></audio>
-
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-inline text-right" >
         重複播放次數：
         <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-info btn_radio">
+        <label class="btn btn-warning btn_radio">
             <input type="radio" name="times_options" id="option1" autocomplete="off" value="1">1
         </label>
-        <label class="btn btn-info btn_radio active">
+        <label class="btn btn-warning btn_radio active">
             <input type="radio" name="times_options" id="option2" autocomplete="off" value="2" checked>2
         </label>
-        <label class="btn btn-info btn_radio">
+        <label class="btn btn-warning btn_radio">
             <input type="radio" name="times_options" id="option3" autocomplete="off" value="3">3
         </label>
+        </div>
         </div>
     </div>
 
     <div class="content_zone word_zone type_zone" style="display:none">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -106,7 +156,7 @@
     </div>
 
     <div class="content_zone example_zone" style="display:none">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -122,7 +172,7 @@
     </div>
 
     <div class="content_zone conversation_zone" style="display:none">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <blockquote class="success" style="margin-bottom: 0px; margin-top: 20px; border-left-color: green;">
             <p id="conversation_title" class="japan_content">test</p>
         </blockquote>
@@ -163,7 +213,7 @@
             </div>
         </div>
     </div>
-
+    </div>
 </body>
 
 </html>
