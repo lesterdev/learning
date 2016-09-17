@@ -37,7 +37,7 @@ function genIconZa(){
     for(var i = 0 ; i < 3; i++){
         for(var j=0 ; j < 4; j++){
             var icon = '<button class="icon iconza" style="background-position-x: '+(0-j*125)+'px; background-position-y: '+(0-i*125)+'px;" data-word="'+data_list[i*4+j]+'"></button>';
-            var div = '<div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 form-inline">'+icon+'</div>';
+            var div = '<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 form-inline">'+icon+'</div>';
             content_obj.append(div);
         }
     }
@@ -49,7 +49,7 @@ function genIconBlood(){
     for(var i = 0 ; i < 2; i++){
         for(var j=0 ; j < data_list.length; j++){
             var icon = '<button class="icon iconblood '+data_list[j].toLowerCase()+(i==0?'female':'male')+' " data-word="'+data_list[j]+'"></button>';
-            var div = '<div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 form-inline">'+icon+'</div>';
+            var div = '<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 form-inline">'+icon+'</div>';
             content_obj.append(div);
         }
         content_obj.append('<div class="col-lg-12"></div>');
@@ -65,7 +65,7 @@ function genIconHabit(){
     var content_obj = $('#iconhabit_zone');
     for(var j=0 ; j < data_list.length; j++){
         var icon = '<button class="icon iconhabit icon'+icon_list[j]+'" data-word="'+data_list[j]+'"></button>';
-        var div = '<div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 form-inline">'+icon+'</div>';
+        var div = '<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 form-inline">'+icon+'</div>';
         content_obj.append(div);
     }
 }
