@@ -27,7 +27,11 @@ $(document).ready(function(){
             if($(this).is('ruby')){
                 word += $(this).find('rt').text();
             } else{
-                word += $(this).text();
+                if($(this).find('rt').length!=0){
+                    word += $(this).find('rt').text();
+                } else {
+                    word += $(this).text();
+                }
             }
         });
         //responsiveVoice.speak(word.replace(/ *\（[^）]*\） */g, ""), "Japanese Female");
