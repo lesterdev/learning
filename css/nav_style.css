@@ -95,3 +95,28 @@
     background-color: #000000;
   }
 }
+
+.btn-round {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.btn-round.btn-lg {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-round.btn-sm {
+    width: 34px;
+    height: 34px;
+}
+
+.btn-round.btn-xs {
+    width: 24px;
+    height: 24px;
+}
+.alert {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}

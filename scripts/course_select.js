@@ -1,5 +1,3 @@
-
-var lesson_list = "L1,L2,L3,L4,L5,L6".split(',');
 var item_text = '単語（たんご）,文型（ぶんけい）,例文（れいぶん）,会話（かいわ）'.split(',');
 var item_list = 'word,type,example,conversation'.split(',');
 
@@ -116,7 +114,11 @@ function getTextFile(file, stage) {
 }
 
 function transRuby(text){
-    var result =text;
+    var result = text;
+
+    if(result==undefined){
+        result = '';
+    }
     /*
     var text_list = text.split('））');
     for(var i in text_list){
@@ -169,7 +171,7 @@ function show_word(data_list) {
 
         var play_button_html = '';
         if(data[2]!=undefined&&data[3]!=undefined){
-            play_button_html = '<button type="button" class="btn_playword" data-start_sec="' + data[3] + '" data-end_sec="' + data[4] + '"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>';
+            play_button_html = '<button type="button" class="btn_playword btn-default btn-round" data-start_sec="' + data[3] + '" data-end_sec="' + data[4] + '"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>';
         }
         zone_list_obj.append(
             '<tr>' +
@@ -206,8 +208,10 @@ function show_example(data_list) {
     for (var i = 0; i < data_list.length; i++) {
         var data = data_list[i];
         var play_button_html = '';
-        if(data[2]!=''&&data[3]!=''){
-            play_button_html = '<button type="button" class="btn_playword" data-start_sec="' + data[2] + '" data-end_sec="' + data[3] + '"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>';
+        if(data[2]!=undefined && data[3]!=undefined){
+            if(data[2]!='' && data[3]!=''){
+                play_button_html = '<button type="button" class="btn_playword btn-default btn-round" data-start_sec="' + data[2] + '" data-end_sec="' + data[3] + '"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>';
+            }
         }
         zone_list_obj.append(
             '<tr>' +
@@ -235,8 +239,10 @@ function show_conversation(data_list) {
     for (var i = 1; i < data_list.length; i++) {
         var data = data_list[i];
         var play_button_html = '';
-        if(data[2]!=''&&data[3]!=''){
-            play_button_html = '<button type="button" class="btn_playword" data-start_sec="' + data[2] + '" data-end_sec="' + data[3] + '"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>';
+        if(data[2]!=undefined && data[3]!=undefined){
+            if(data[2]!=''&&data[3]!=''){
+                play_button_html = '<button type="button" class="btn_playword btn-default btn-round" data-start_sec="' + data[2] + '" data-end_sec="' + data[3] + '"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>';
+            }
         }
         zone_list_obj.append(
             '<tr>' +
