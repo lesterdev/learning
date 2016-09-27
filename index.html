@@ -121,12 +121,17 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-1 form-inline">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
             <select name="" id="input_lesson" class="form-control">
                 <option value="">請選擇</option>
             </select>
 
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline">
+            <div id = "lesson_stage_zone"></div>
+        </div>
+        <!--
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-2 form-inline">
             <select name="" id="input_lesson_stage" class="input_lesson_stage form-control">
                 <option value="">請選擇</option>
@@ -135,6 +140,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1 form-inline">
             <button type="button" id="btn_load_lesson" class="btn btn-warning btn-block">載入</button>
         </div>
+        -->
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -207,6 +213,22 @@
                 </tr>
             </thead>
             <tbody class="conversation_list">
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <div class="content_zone question_zone" style="display:none">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>編號</th>
+                    <th>句子</th>
+                    <th>功能</th>
+                </tr>
+            </thead>
+            <tbody class="question_list">
             </tbody>
         </table>
     </div>

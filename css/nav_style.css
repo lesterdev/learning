@@ -103,8 +103,9 @@
 }
 
 .btn-round.btn-lg {
-    width: 48px;
-    height: 48px;
+    font-size: 15px;
+    width: 55px;
+    height: 55px;
 }
 
 .btn-round.btn-sm {

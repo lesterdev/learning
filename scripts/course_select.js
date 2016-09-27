@@ -1,13 +1,16 @@
-var item_text = '単語（たんご）,文型（ぶんけい）,例文（れいぶん）,会話（かいわ）'.split(',');
-var item_list = 'word,type,example,conversation'.split(',');
+var item_text = '単語（たんご）,文型（ぶんけい）,例文（れいぶん）,会話（かいわ）,問題（もんだい）'.split(',');
+var item_list = 'word,type,example,conversation,question'.split(',');
+var btn_color_list = 'info,success,warning,primary,danger'.split(',');
+
 
 
 $(document).ready(function () {
     initCourse();
-
-    $('#btn_load_lesson').click(function () {
+    $(document).on('click','button.btn_load_lesson',function () {
+    //$('#btn_load_lesson').click(function () {
+        var lesson = $(this).data('lesson');
         cleanAudioPlayer();
-        onLoadLessonStage($('#input_lesson').prop('value'), $('#input_lesson_stage').prop('value'));
+        onLoadLessonStage($('#input_lesson').prop('value'), lesson);
     });
 
     $('#uploadFile').change(function () {
@@ -65,6 +68,9 @@ function initCourse() {
         }
     }
     for (var i = 0; i < item_text.length; i++) {
+        $('#lesson_stage_zone').append('<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 form-inline" style="padding-left: 0px;"><button type="button" class="btn_load_lesson btn btn-block btn-'+btn_color_list[i]+'" data-lesson="'+item_list[i]+'">'+item_text[i].replace(/ *\（[^）]*\） */g, "")+'</button></div>');
+    }
+    for (var i = 0; i < item_text.length; i++) {
         $('.input_lesson_stage').append('<option value="' + item_list[i] + '">' + item_text[i] + '</option>');
     }
 }
@@ -96,6 +102,8 @@ function show_data(data, stage){
                 show_example(data);
             } else if(stage=='conversation'){
                 show_conversation(data);
+            } else if(stage=='question'){
+                show_question(data);
             }
             $('.'+stage+'_zone').show();
             $(".japan_content").JVFurigana();
@@ -247,6 +255,37 @@ function show_conversation(data_list) {
         zone_list_obj.append(
             '<tr>' +
             '<td class="japan_content">' + transRuby(data[0]) + '</td>' +
+            '<td class="japan_content">' + transRuby(data[1]) + '</td>' +
+            '<td>' + play_button_html + '</td>' +
+            '</tr>');
+    }
+    /*
+    $('button.btn_playword').click(function () {
+        var start_sec = $(this).data('start_sec');
+        var end_sec = $(this).data('end_sec');
+        cleanAudioPlayer();
+        playWord(start_sec, end_sec, 3);
+    });
+    */
+}
+
+function show_question(data_list) {
+    var zone_list_obj = $('.question_list');
+    zone_list_obj.html('');
+    //first line is title of conversation.
+    //$('#conversation_title').html(transRuby(data_list[0][0]));
+    for (var i = 0; i < data_list.length; i++) {
+        var data = data_list[i];
+        var play_button_html = '';
+        if(data[2]!=undefined && data[3]!=undefined){
+            if(data[2]!='' && data[3]!=''){
+                play_button_html = '<button type="button" class="btn_playword btn-default btn-round" data-start_sec="' + data[2] + '" data-end_sec="' + data[3] + '"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>';
+            }
+        }
+        console.log(data[1]);
+        zone_list_obj.append(
+            '<tr>' +
+            '<td>' + transRuby(data[0]) + '</td>' +
             '<td class="japan_content">' + transRuby(data[1]) + '</td>' +
             '<td>' + play_button_html + '</td>' +
             '</tr>');
