@@ -68,7 +68,7 @@ function initCourse() {
         }
     }
     for (var i = 0; i < item_text.length; i++) {
-        $('#lesson_stage_zone').append('<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 form-inline" style="padding-left: 0px;"><button type="button" class="btn_load_lesson btn btn-block btn-'+btn_color_list[i]+'" data-lesson="'+item_list[i]+'">'+item_text[i].replace(/ *\（[^）]*\） */g, "")+'</button></div>');
+        $('#lesson_stage_zone').append('<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 form-inline" style="padding-left: 0px; margin-top: 5px;"><button type="button" class="btn_load_lesson btn btn-block btn-'+btn_color_list[i]+'" data-lesson="'+item_list[i]+'">'+item_text[i].replace(/ *\（[^）]*\） */g, "")+'</button></div>');
     }
     for (var i = 0; i < item_text.length; i++) {
         $('.input_lesson_stage').append('<option value="' + item_list[i] + '">' + item_text[i] + '</option>');
